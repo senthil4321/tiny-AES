@@ -1,15 +1,22 @@
-package ru.tehcpu.tinyaes;
-
-import ru.tehcpu.tinyaes.core.AES;
+package com.srk.demo.aestiny;
 
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import com.srk.demo.aestiny.core.AES;
+
 public class Main {
     private static AES cipher;
+	private static Logger logger = LogManager.getLogger(Main.class);
 
     public static void main(String[] args) {
+
+		logger.info("Test 123");
+
         if (args.length < 1) {
             System.out.println("Please, pass the text");
             return;

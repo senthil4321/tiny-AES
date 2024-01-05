@@ -1,12 +1,10 @@
-package ru.tehcpu.tinyaes.core;
+package com.srk.demo.aestiny.core;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.Arrays;
 
-/**
- * Created by tehcpu on 11/12/17.
- */
+
 public class AES {
     // current round index
     private int actual;
