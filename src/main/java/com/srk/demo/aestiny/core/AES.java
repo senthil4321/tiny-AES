@@ -4,6 +4,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.Arrays;
 
+import com.srk.utils.Utils;
 
 public class AES {
     // current round index
@@ -202,12 +203,15 @@ public class AES {
             }
         }
 
+		Utils.printMatrix(state[0]);
+
         cipher(state[0], state[1]);
         for (int i = 0; i < Nb; i++) {
             for (int j = 0; j < 4; j++) {
                 out[i * Nb + j] = (byte) (state[1][j][i] & 0xff);
             }
         }
+		Utils.printMatrix(state[1]);
         return out;
     }
 
