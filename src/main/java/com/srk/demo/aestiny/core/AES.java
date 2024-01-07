@@ -1,10 +1,11 @@
 package com.srk.demo.aestiny.core;
 
+import static com.srk.utils.Utils.int2hex;
+import static com.srk.utils.Utils.printMatrix;
+
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.Arrays;
-
-import com.srk.utils.Utils;
 
 public class AES {
     // current round index
@@ -137,11 +138,23 @@ public class AES {
     // Round: A round of the key w to be added.
     // s: returns the addition of the key per round
     private int[][] addRoundKey(int[][] s, int round) {
+
+		System.out.printf("Round %d", round);
+		System.out.println();
+
+		System.out.println("Input");
+		printMatrix(s);
+
         for (int c = 0; c < Nb; c++) {
             for (int r = 0; r < 4; r++) {
                 s[r][c] = s[r][c] ^ ((w[round * Nb + c] << (r * 8)) >>> 24);
             }
         }
+
+		System.out.println("Output");
+
+		printMatrix(s);
+
         return s;
     }
 
@@ -203,7 +216,7 @@ public class AES {
             }
         }
 
-		Utils.printMatrix(state[0]);
+		printMatrix(state[0]);
 
         cipher(state[0], state[1]);
         for (int i = 0; i < Nb; i++) {
@@ -211,7 +224,7 @@ public class AES {
                 out[i * Nb + j] = (byte) (state[1][j][i] & 0xff);
             }
         }
-		Utils.printMatrix(state[1]);
+		// Utils.printMatrix(state[1]);
         return out;
     }
 
@@ -313,23 +326,64 @@ public class AES {
             w[i] |= key[4 * i + 1] << 16;
             w[i] |= key[4 * i + 2] << 8;
             w[i] |= key[4 * i + 3];
+
+			System.out.println("w" + i + " " + int2hex(w[i]));
             i++;
         }
+
         i = Nk;
         while (i < Nb * (Nr + 1)) {
             temp = w[i - 1];
             if (i % Nk == 0) {
                 // apply an XOR with a constant round rCon.
-                temp = subWord(rotWord(temp)) ^ (rCon[i / Nk] << 24);
-            } else if (Nk > 6 && (i % Nk == 4)) {
+
+				System.out.println("W" + i + " Special Operation 1");
+
+				System.out.println("    W" + i + " 0. input w" + (i - 1));
+				System.out.println("    W" + i + " " + int2hex(temp));
+
+				int rotWord = rotWord(temp);
+				System.out.println("    W" + i + " 1. rotWord");
+				System.out.println("    W" + i + " " + int2hex(rotWord));
+
+				int subWord = subWord(rotWord);
+				System.out.println("    W" + i + " 2. subWord");
+				System.out.println("    W" + i + " " + int2hex(subWord));
+
+				int rConWord = rCon[i / Nk] << 24;
+				System.out.println("        W" + i + " 3. rConWord");
+				System.out.println("        W" + i + " " + int2hex(rConWord));
+
+				temp = subWord ^ rConWord;
+				System.out.println("    W" + i + " 3. subWord xor rConWord");
+				System.out.println("    W" + i + " " + int2hex(temp));
+
+
+			} else if (Nk > 6 && (i % Nk == 4)) { // TODO Special Case of AES 256
                 temp = subWord(temp);
+				System.out.println("W" + i + " Special Operation 2");
+
             } else {
+				System.out.println("W" + i + " NOP");
             }
+
+			System.out.println("    W" + i + " XOR");
+			if (i % Nk == 0) {
+				System.out.println("    W" + i + " = W" + (i - Nk) + " xor" + " g(W" + (i - 1) + ")");
+			} else {
+				System.out.println("    W" + i + " = W" + (i - Nk) + " xor" + " W" + (i - 1));
+			}
+
             w[i] = w[i - Nk] ^ temp;
+			System.out.println("w" + i + " " + int2hex(w[i]));
             i++;
+			System.out.println();
         }
+
         return w;
     }
+
+
 
     private int[][] mixColumns(int[][] state) {
         int temp0, temp1, temp2, temp3;

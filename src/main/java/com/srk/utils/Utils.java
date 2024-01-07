@@ -60,8 +60,15 @@ public class Utils {
 			for (int j = 0; j < columns; j++) {
 				// System.out.printf("%4d", matrix[i][j]);
 				System.out.printf("%4s", bin2hex(matrix[i][j]));
+
 			}
 			System.out.println();
 		}
+	}
+
+	public static String int2hex(int i) {
+		Integer intObject = Integer.valueOf(i);
+		String s = String.format("%08X", intObject);
+		return s;
 	}
 }
