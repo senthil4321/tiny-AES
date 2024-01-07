@@ -216,7 +216,7 @@ public class AES {
             }
         }
 
-		printMatrix(state[0]);
+		// printMatrix(state[0]);
 
         cipher(state[0], state[1]);
         for (int i = 0; i < Nb; i++) {
@@ -407,10 +407,12 @@ public class AES {
         int sum = 0;
         while (a != 0) { // while it is not 0
             if ((a & 1) != 0) { // check if the first bit is 1
-                sum = sum ^ b; // add b from the smallest bit
+				sum = sum ^ b; // add b from the smallest bit // SRk XOR addition
             }
-            b = xtime(b); // bit shift left mod 0x11b if necessary;
-            a = a >>> 1; // lowest bit of "a" was used so shift right
+			b = xtime(b); // bit shift left mod 0x11b if necessary; //SRK multiply
+
+			a = a >>> 1; // lowest bit of "a" was used so shift right //SRK Used to multiply by 3 if
+							// needed. Right shift reduces the number. divided by 2
         }
         return sum;
 
@@ -465,9 +467,13 @@ public class AES {
 
     private static int subWord(int word) {
         int subWord = 0;
+		// System.out.println("subword ");
         for (int i = 24; i >= 0; i -= 8) {
+			// System.out.println(" subword i = " + i);
             int in = word << i >>> 24;
             subWord |= sBox[in] << (24 - i);
+
+			// System.out.println(" subword " + bin2hex(in));
         }
         return subWord;
     }
