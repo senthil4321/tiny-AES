@@ -71,4 +71,8 @@ public class Utils {
 		String s = String.format("%08X", intObject);
 		return s;
 	}
+
+	public static final byte[] intToByteArray(int value) {
+		return new byte[] { (byte) (value >>> 24), (byte) (value >>> 16), (byte) (value >>> 8), (byte) value };
+	}
 }
