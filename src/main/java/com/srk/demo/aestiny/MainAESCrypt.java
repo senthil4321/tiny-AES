@@ -71,11 +71,6 @@ public class MainAESCrypt {
 		substituteWord(w[0]);
 		substituteByte((byte) 0x01);
 		rCon(1);
-		rCon(2);
-		rCon(3);
-		rCon(4);
-		 
-
 	}
 
 	static int rCon(int index) {
