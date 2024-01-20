@@ -93,4 +93,40 @@ class MainAESCryptTest {
 		assertEquals(expected, data, "Expected data not found");
 	}
 
+	@Test
+	void test_rCon1() {
+		int index = 1;
+		int expected = 0x01000000;
+		int data = MainAESCrypt.rCon(index);
+		logger.info("test_rCon1     {}", bin2hex(int2ByteArray(data)));
+		assertEquals(expected, data, "Expected data not found");
+	}
+
+	@Test
+	void test_rCon2() {
+		int index = 2;
+		int expected = 0x02000000;
+		int data = MainAESCrypt.rCon(index);
+		logger.info("test_rCon1     {}", bin2hex(int2ByteArray(data)));
+		assertEquals(expected, data, "Expected data not found");
+	}
+
+	@Test
+	void test_rCon3() {
+		int index = 3;
+		int expected = 0x04000000;
+		int data = MainAESCrypt.rCon(index);
+		logger.info("test_rCon1     {}", bin2hex(int2ByteArray(data)));
+		assertEquals(expected, data, "Expected data not found");
+	}
+
+	@Test
+	void test_rCon4() {
+		int index = 4;
+		int expected = 0x08000000;
+		int data = MainAESCrypt.rCon(index);
+		logger.info("test_rCon1     {}", bin2hex(int2ByteArray(data)));
+		assertEquals(expected, data, "Expected data not found");
+	}
+
 }
