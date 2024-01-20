@@ -67,10 +67,11 @@ public class MainAESCrypt {
 			logger.info("expandKey         {}", bin2hex(int2ByteArray(w[i])));
 		}
 
-		rotateWord(w[0]);
-		substituteWord(w[0]);
-		substituteByte((byte) 0x01);
-		rCon(1);
+		int rotWord = rotateWord(w[0]);
+		int subWord = substituteWord(rotWord);
+		int rConWord = rCon(1);
+		int temp = subWord ^ rConWord;
+
 	}
 
 	static int rCon(int index) {
@@ -104,7 +105,7 @@ public class MainAESCrypt {
 	public static int rotateWord(int data) {
 
 		logger.info("rotateWord Input     {}", bin2hex(int2ByteArray(data)));
-		data = (data >>> 8) | (data << (Integer.SIZE - 8));
+		data = (data << 8) | ((data & 0xFF000000) >>> 24);
 		logger.info("rotateWord Output    {}", bin2hex(int2ByteArray(data)));
 		return data;
 	}

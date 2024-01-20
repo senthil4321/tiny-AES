@@ -5,13 +5,15 @@ import static com.srk.utils.Utils.hex2bin;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.junit.jupiter.api.Test;
 
 import com.srk.demo.aestiny.core.AES;
 
-public class MainAESTest {
-	private static Logger logger = LogManager.getLogger(MainAESTest.class);
-	public static void main(String[] args) {
+public class AESTest {
+	private static Logger logger = LogManager.getLogger(AESTest.class);
 
+	@Test
+	void test_substituteWord1() {
 		byte[] key = new byte[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 };
 
 		String key32 = "000102030405060708090A0B0C0D0E0F000102030405060708090A0B0C0D0E0F";
@@ -24,9 +26,6 @@ public class MainAESTest {
 		logger.info("Key         {}", bin2hex(key));
 		logger.info("ecb_encrypt {}", bin2hex(ecb_encrypt));
 		logger.info("ecb_decrypt {}", bin2hex(ecb_decrypt));
-
-
-
 	}
 
 }
