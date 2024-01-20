@@ -43,9 +43,25 @@ public class MainAESCrypt {
 			w[i] = ((key[index + 0] & 0xFF) << 24) | ((key[index + 1] & 0xFF) << 16) | ((key[index + 2] & 0xFF) << 8)
 					| ((key[index + 3] & 0xFF) << 0);
 
-			logger.info("Data         {}", bin2hex(intToByteArray(w[i])));
+			logger.info("expandKey         {}", bin2hex(intToByteArray(w[i])));
 		}
+
+		rotateWord(w[0]);
+		substituteWord(w[0]);
 		 
 
+	}
+
+	private static int substituteWord(int data) {
+
+		return data;
+	}
+
+	public static int rotateWord(int data) {
+
+		logger.info("rotateWord Input     {}", bin2hex(intToByteArray(data)));
+		data = (data >>> 8) | (data << (Integer.SIZE - 8));
+		logger.info("rotateWord Output    {}", bin2hex(intToByteArray(data)));
+		return data;
 	}
 }
