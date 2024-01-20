@@ -8,8 +8,8 @@ import static com.srk.utils.Utils.int2ByteArray;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class MainAESCrypt {
-	private static Logger logger = LogManager.getLogger(MainAESCrypt.class);
+public class SrkAES {
+	private static Logger logger = LogManager.getLogger(SrkAES.class);
 
 	private static int[] sBox = new int[] {
 			// 0 1 2 3 4 5 6 7 8 9 A B C D E F
@@ -54,6 +54,20 @@ public class MainAESCrypt {
 
 		int w[] = new int[48];
 
+		preExpandKey(key, w);
+		int data = specialOperationExpandKey(w[3], 1);
+
+	}
+
+	public static int specialOperationExpandKey(int word, int index) {
+		int rotWord = rotateWord(word);
+		int subWord = substituteWord(rotWord);
+		int rConWord = rCon(index);
+		int temp = subWord ^ rConWord;
+		return temp;
+	}
+
+	private static void preExpandKey(byte[] key, int[] w) {
 		// each round needs 4(ex. w0 w1 w2 w3) * 32 = 128 bits
 		int index;
 		// w0 to w3
@@ -66,12 +80,6 @@ public class MainAESCrypt {
 
 			logger.info("expandKey         {}", bin2hex(int2ByteArray(w[i])));
 		}
-
-		int rotWord = rotateWord(w[0]);
-		int subWord = substituteWord(rotWord);
-		int rConWord = rCon(1);
-		int temp = subWord ^ rConWord;
-
 	}
 
 	static int rCon(int index) {
