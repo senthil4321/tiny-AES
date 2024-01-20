@@ -370,8 +370,12 @@ public class AES {
 			System.out.println("    W" + i + " XOR");
 			if (i % Nk == 0) {
 				System.out.println("    W" + i + " = W" + (i - Nk) + " xor" + " g(W" + (i - 1) + ")");
+
+				System.out.println("    W" + i + " = " + int2hex(w[(i - Nk)]) + " xor" + " " + int2hex(w[i - 1]));
+
 			} else {
 				System.out.println("    W" + i + " = W" + (i - Nk) + " xor" + " W" + (i - 1));
+				System.out.println("    W" + i + " = " + int2hex(w[(i - Nk)]) + " xor" + " " + int2hex(w[i - 1]));
 			}
 
             w[i] = w[i - Nk] ^ temp;

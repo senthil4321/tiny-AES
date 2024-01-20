@@ -51,12 +51,13 @@ public class SrkAES {
 
 	private static void expandKey(byte[] key) {
 		logger.info("Key         {}", bin2hex(key));
+		int[] w = preExpandKey(key);
 
-		int w[] = new int[48];
-
-		preExpandKey(key, w);
-		int data = specialOperationExpandKey(w[3], 1);
-
+		int temp = specialOperationExpandKey(w[3], 1);
+		w[4] = temp ^ w[0];
+		w[5] = w[4] ^ w[1];
+		w[6] = w[5] ^ w[2];
+		w[7] = w[6] ^ w[3];
 	}
 
 	public static int specialOperationExpandKey(int word, int index) {
@@ -67,7 +68,10 @@ public class SrkAES {
 		return temp;
 	}
 
-	private static void preExpandKey(byte[] key, int[] w) {
+	static int[] preExpandKey(byte[] key) {
+
+		int w[] = new int[48];
+
 		// each round needs 4(ex. w0 w1 w2 w3) * 32 = 128 bits
 		int index;
 		// w0 to w3
@@ -80,6 +84,8 @@ public class SrkAES {
 
 			logger.info("expandKey         {}", bin2hex(int2ByteArray(w[i])));
 		}
+
+		return w;
 	}
 
 	static int rCon(int index) {
@@ -118,3 +124,4 @@ public class SrkAES {
 		return data;
 	}
 }
+

@@ -1,6 +1,7 @@
 package com.srk.demo.aestiny;
 
 import static com.srk.utils.Utils.bin2hex;
+import static com.srk.utils.Utils.hex2bin;
 import static com.srk.utils.Utils.int2ByteArray;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -174,6 +175,32 @@ class SrkAESTest {
 
 		logger.info("specialOperationExpandKey     {}", bin2hex(int2ByteArray(outputWord)));
 		assertEquals(expected, outputWord, "Error Special Operation Expand Key ");
+
+	}
+
+	@Test
+	void test_ExpandKeyRount1() {
+
+		String key16 = "000102030405060708090A0B0C0D0E0F";
+		int[] w = SrkAES.preExpandKey(hex2bin(key16));
+
+		int input = 0x0C0D0E0F;
+		int expected = 0xD6AB76FE;
+		int roundIndex = 1;
+
+		assertEquals(input, w[3], "Error Special Operation Expand Key ");
+
+		int temp = SrkAES.specialOperationExpandKey(w[3], roundIndex);
+		assertEquals(expected, temp, "Error Special Operation Expand Key ");
+
+		w[4] = w[0] ^ temp;
+
+		assertEquals(0xD2AF72FA, w[4], "Error Special Operation Expand Key ");
+
+		w[5] = w[1] ^ w[4];
+		w[6] = w[2] ^ w[5];
+		w[7] = w[3] ^ w[6];
+
 
 	}
 }
