@@ -6,5 +6,10 @@ pipeline {
                 sh 'mvn -B clean package' 
             }
         }
+        
+        stage('Report') {
+  	junit '**/reports/junit/*.xml'
+		}
+        
     }
 }
