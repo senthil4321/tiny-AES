@@ -1,0 +1,248 @@
+2024-09-28 09:20:08,959 INFO c.s.d.a.AESTest [main] Key         000102030405060708090A0B0C0D0E0F
+2024-09-28 09:20:08,961 INFO c.s.d.a.AESTest [main] ecb_encrypt 954F64F2E4E86E9EEE82D20216684899
+2024-09-28 09:20:08,962 INFO c.s.d.a.AESTest [main] ecb_decrypt 10101010101010101010101010101010
+2024-09-28 09:20:08,993 INFO c.s.d.a.SrkAES [main] rotateWord Input     FF112233
+2024-09-28 09:20:08,993 INFO c.s.d.a.SrkAES [main] rotateWord Output    112233FF
+2024-09-28 09:20:08,994 INFO c.s.d.a.SrkAESTest [main] expandKey         112233FF
+2024-09-28 09:20:08,997 INFO c.s.d.a.SrkAES [main] rotateWord Input     0C0D0E0F
+2024-09-28 09:20:08,997 INFO c.s.d.a.SrkAES [main] rotateWord Output    0D0E0F0C
+2024-09-28 09:20:08,997 INFO c.s.d.a.SrkAES [main] substituteWord input    0C
+2024-09-28 09:20:08,997 INFO c.s.d.a.SrkAES [main] substituteByte input    0D
+2024-09-28 09:20:08,997 INFO c.s.d.a.SrkAES [main] substituteByte output    D7
+2024-09-28 09:20:08,997 INFO c.s.d.a.SrkAES [main] substituteByte input    0E
+2024-09-28 09:20:08,997 INFO c.s.d.a.SrkAES [main] substituteByte output    AB
+2024-09-28 09:20:08,998 INFO c.s.d.a.SrkAES [main] substituteByte input    0F
+2024-09-28 09:20:08,998 INFO c.s.d.a.SrkAES [main] substituteByte output    76
+2024-09-28 09:20:08,998 INFO c.s.d.a.SrkAES [main] substituteByte input    0C
+2024-09-28 09:20:08,998 INFO c.s.d.a.SrkAES [main] substituteByte output    FE
+2024-09-28 09:20:08,998 INFO c.s.d.a.SrkAES [main] substituteWord input    FE
+2024-09-28 09:20:08,998 INFO c.s.d.a.SrkAES [main] rCon output    01000000
+2024-09-28 09:20:08,998 INFO c.s.d.a.SrkAESTest [main] specialOperationExpandKey     D6AB76FE
+2024-09-28 09:20:08,999 INFO c.s.d.a.SrkAES [main] substituteByte input    01
+2024-09-28 09:20:08,999 INFO c.s.d.a.SrkAES [main] substituteByte output    7C
+2024-09-28 09:20:08,999 INFO c.s.d.a.SrkAESTest [main] substituteWord     7C
+2024-09-28 09:20:09,001 INFO c.s.d.a.SrkAES [main] substituteByte input    00
+2024-09-28 09:20:09,001 INFO c.s.d.a.SrkAES [main] substituteByte output    63
+2024-09-28 09:20:09,001 INFO c.s.d.a.SrkAESTest [main] substituteWord     63
+2024-09-28 09:20:09,002 INFO c.s.d.a.SrkAES [main] substituteByte input    FF
+2024-09-28 09:20:09,002 INFO c.s.d.a.SrkAES [main] substituteByte output    16
+2024-09-28 09:20:09,002 INFO c.s.d.a.SrkAESTest [main] substituteWord     16
+2024-09-28 09:20:09,003 INFO c.s.d.a.SrkAES [main] substituteWord input    FF
+2024-09-28 09:20:09,003 INFO c.s.d.a.SrkAES [main] substituteByte input    FF
+2024-09-28 09:20:09,003 INFO c.s.d.a.SrkAES [main] substituteByte output    16
+2024-09-28 09:20:09,003 INFO c.s.d.a.SrkAES [main] substituteByte input    FF
+2024-09-28 09:20:09,003 INFO c.s.d.a.SrkAES [main] substituteByte output    16
+2024-09-28 09:20:09,004 INFO c.s.d.a.SrkAES [main] substituteByte input    FF
+2024-09-28 09:20:09,004 INFO c.s.d.a.SrkAES [main] substituteByte output    16
+2024-09-28 09:20:09,004 INFO c.s.d.a.SrkAES [main] substituteByte input    FF
+2024-09-28 09:20:09,004 INFO c.s.d.a.SrkAES [main] substituteByte output    16
+2024-09-28 09:20:09,004 INFO c.s.d.a.SrkAES [main] substituteWord input    16
+2024-09-28 09:20:09,004 INFO c.s.d.a.SrkAESTest [main] substituteWord     16
+2024-09-28 09:20:09,005 INFO c.s.d.a.SrkAES [main] substituteWord input    00
+2024-09-28 09:20:09,005 INFO c.s.d.a.SrkAES [main] substituteByte input    FF
+2024-09-28 09:20:09,006 INFO c.s.d.a.SrkAES [main] substituteByte output    16
+2024-09-28 09:20:09,006 INFO c.s.d.a.SrkAES [main] substituteByte input    FF
+2024-09-28 09:20:09,006 INFO c.s.d.a.SrkAES [main] substituteByte output    16
+2024-09-28 09:20:09,006 INFO c.s.d.a.SrkAES [main] substituteByte input    FF
+2024-09-28 09:20:09,007 INFO c.s.d.a.SrkAES [main] substituteByte output    16
+2024-09-28 09:20:09,007 INFO c.s.d.a.SrkAES [main] substituteByte input    00
+2024-09-28 09:20:09,007 INFO c.s.d.a.SrkAES [main] substituteByte output    63
+2024-09-28 09:20:09,007 INFO c.s.d.a.SrkAES [main] substituteWord input    63
+2024-09-28 09:20:09,007 INFO c.s.d.a.SrkAESTest [main] substituteWord     63
+2024-09-28 09:20:09,008 INFO c.s.d.a.SrkAES [main] rotateWord Input     0C0D0E0F
+2024-09-28 09:20:09,008 INFO c.s.d.a.SrkAES [main] rotateWord Output    0D0E0F0C
+2024-09-28 09:20:09,009 INFO c.s.d.a.SrkAESTest [main] rotWord     0D0E0F0C
+2024-09-28 09:20:09,009 INFO c.s.d.a.SrkAES [main] substituteWord input    0C
+2024-09-28 09:20:09,009 INFO c.s.d.a.SrkAES [main] substituteByte input    0D
+2024-09-28 09:20:09,009 INFO c.s.d.a.SrkAES [main] substituteByte output    D7
+2024-09-28 09:20:09,009 INFO c.s.d.a.SrkAES [main] substituteByte input    0E
+2024-09-28 09:20:09,009 INFO c.s.d.a.SrkAES [main] substituteByte output    AB
+2024-09-28 09:20:09,009 INFO c.s.d.a.SrkAES [main] substituteByte input    0F
+2024-09-28 09:20:09,009 INFO c.s.d.a.SrkAES [main] substituteByte output    76
+2024-09-28 09:20:09,010 INFO c.s.d.a.SrkAES [main] substituteByte input    0C
+2024-09-28 09:20:09,010 INFO c.s.d.a.SrkAES [main] substituteByte output    FE
+2024-09-28 09:20:09,010 INFO c.s.d.a.SrkAES [main] substituteWord input    FE
+2024-09-28 09:20:09,011 INFO c.s.d.a.SrkAES [main] rCon output    01000000
+2024-09-28 09:20:09,012 INFO c.s.d.a.SrkAES [main] expandKey         00010203
+2024-09-28 09:20:09,012 INFO c.s.d.a.SrkAES [main] expandKey         04050607
+2024-09-28 09:20:09,012 INFO c.s.d.a.SrkAES [main] expandKey         08090A0B
+2024-09-28 09:20:09,012 INFO c.s.d.a.SrkAES [main] expandKey         0C0D0E0F
+2024-09-28 09:20:09,012 INFO c.s.d.a.SrkAES [main] rotateWord Input     0C0D0E0F
+2024-09-28 09:20:09,012 INFO c.s.d.a.SrkAES [main] rotateWord Output    0D0E0F0C
+2024-09-28 09:20:09,012 INFO c.s.d.a.SrkAES [main] substituteWord input    0C
+2024-09-28 09:20:09,012 INFO c.s.d.a.SrkAES [main] substituteByte input    0D
+2024-09-28 09:20:09,012 INFO c.s.d.a.SrkAES [main] substituteByte output    D7
+2024-09-28 09:20:09,013 INFO c.s.d.a.SrkAES [main] substituteByte input    0E
+2024-09-28 09:20:09,013 INFO c.s.d.a.SrkAES [main] substituteByte output    AB
+2024-09-28 09:20:09,013 INFO c.s.d.a.SrkAES [main] substituteByte input    0F
+2024-09-28 09:20:09,013 INFO c.s.d.a.SrkAES [main] substituteByte output    76
+2024-09-28 09:20:09,013 INFO c.s.d.a.SrkAES [main] substituteByte input    0C
+2024-09-28 09:20:09,013 INFO c.s.d.a.SrkAES [main] substituteByte output    FE
+2024-09-28 09:20:09,013 INFO c.s.d.a.SrkAES [main] substituteWord input    FE
+2024-09-28 09:20:09,013 INFO c.s.d.a.SrkAES [main] rCon output    01000000
+2024-09-28 09:20:09,041 INFO c.s.d.a.SrkAES [main] rCon output    01000000
+2024-09-28 09:20:09,041 INFO c.s.d.a.SrkAESTest [main] test_rCon1     01000000
+2024-09-28 09:20:09,042 INFO c.s.d.a.SrkAES [main] rCon output    02000000
+2024-09-28 09:20:09,042 INFO c.s.d.a.SrkAESTest [main] test_rCon1     02000000
+2024-09-28 09:20:09,044 INFO c.s.d.a.SrkAES [main] rCon output    04000000
+2024-09-28 09:20:09,044 INFO c.s.d.a.SrkAESTest [main] test_rCon1     04000000
+2024-09-28 09:20:09,045 INFO c.s.d.a.SrkAES [main] rCon output    08000000
+2024-09-28 09:20:09,045 INFO c.s.d.a.SrkAESTest [main] test_rCon1     08000000
+2024-09-28 09:20:09,045 INFO c.s.d.a.SrkAES [main] rotateWord Input     FF1122FF
+2024-09-28 09:20:09,046 INFO c.s.d.a.SrkAES [main] rotateWord Output    1122FFFF
+2024-09-28 09:20:09,046 INFO c.s.d.a.SrkAESTest [main] expandKey         1122FFFF
+2024-09-28 09:20:09,047 INFO c.s.d.a.SrkAES [main] rotateWord Input     FFFF2233
+2024-09-28 09:20:09,047 INFO c.s.d.a.SrkAES [main] rotateWord Output    FF2233FF
+2024-09-28 09:20:09,047 INFO c.s.d.a.SrkAESTest [main] expandKey         FF2233FF
+2024-09-28 09:21:52,180 INFO c.s.d.a.SrkAES [main] rotateWord Input     FF112233
+2024-09-28 09:21:52,183 INFO c.s.d.a.SrkAES [main] rotateWord Output    112233FF
+2024-09-28 09:21:52,183 INFO c.s.d.a.SrkAESTest [main] expandKey         112233FF
+2024-09-28 09:21:52,194 INFO c.s.d.a.SrkAES [main] rotateWord Input     0C0D0E0F
+2024-09-28 09:21:52,194 INFO c.s.d.a.SrkAES [main] rotateWord Output    0D0E0F0C
+2024-09-28 09:21:52,195 INFO c.s.d.a.SrkAES [main] substituteWord input    0C
+2024-09-28 09:21:52,195 INFO c.s.d.a.SrkAES [main] substituteByte input    0D
+2024-09-28 09:21:52,195 INFO c.s.d.a.SrkAES [main] substituteByte output    D7
+2024-09-28 09:21:52,195 INFO c.s.d.a.SrkAES [main] substituteByte input    0E
+2024-09-28 09:21:52,197 INFO c.s.d.a.SrkAES [main] substituteByte output    AB
+2024-09-28 09:21:52,197 INFO c.s.d.a.SrkAES [main] substituteByte input    0F
+2024-09-28 09:21:52,197 INFO c.s.d.a.SrkAES [main] substituteByte output    76
+2024-09-28 09:21:52,197 INFO c.s.d.a.SrkAES [main] substituteByte input    0C
+2024-09-28 09:21:52,197 INFO c.s.d.a.SrkAES [main] substituteByte output    FE
+2024-09-28 09:21:52,197 INFO c.s.d.a.SrkAES [main] substituteWord input    FE
+2024-09-28 09:21:52,197 INFO c.s.d.a.SrkAES [main] rCon output    01000000
+2024-09-28 09:21:52,197 INFO c.s.d.a.SrkAESTest [main] specialOperationExpandKey     D6AB76FE
+2024-09-28 09:21:52,200 INFO c.s.d.a.SrkAES [main] substituteByte input    01
+2024-09-28 09:21:52,200 INFO c.s.d.a.SrkAES [main] substituteByte output    7C
+2024-09-28 09:21:52,201 INFO c.s.d.a.SrkAESTest [main] substituteWord     7C
+2024-09-28 09:21:52,203 INFO c.s.d.a.SrkAES [main] substituteByte input    00
+2024-09-28 09:21:52,203 INFO c.s.d.a.SrkAES [main] substituteByte output    63
+2024-09-28 09:21:52,203 INFO c.s.d.a.SrkAESTest [main] substituteWord     63
+2024-09-28 09:21:52,204 INFO c.s.d.a.SrkAES [main] substituteByte input    FF
+2024-09-28 09:21:52,204 INFO c.s.d.a.SrkAES [main] substituteByte output    16
+2024-09-28 09:21:52,206 INFO c.s.d.a.SrkAESTest [main] substituteWord     16
+2024-09-28 09:21:52,207 INFO c.s.d.a.SrkAES [main] substituteWord input    FF
+2024-09-28 09:21:52,207 INFO c.s.d.a.SrkAES [main] substituteByte input    FF
+2024-09-28 09:21:52,207 INFO c.s.d.a.SrkAES [main] substituteByte output    16
+2024-09-28 09:21:52,207 INFO c.s.d.a.SrkAES [main] substituteByte input    FF
+2024-09-28 09:21:52,207 INFO c.s.d.a.SrkAES [main] substituteByte output    16
+2024-09-28 09:21:52,207 INFO c.s.d.a.SrkAES [main] substituteByte input    FF
+2024-09-28 09:21:52,208 INFO c.s.d.a.SrkAES [main] substituteByte output    16
+2024-09-28 09:21:52,208 INFO c.s.d.a.SrkAES [main] substituteByte input    FF
+2024-09-28 09:21:52,208 INFO c.s.d.a.SrkAES [main] substituteByte output    16
+2024-09-28 09:21:52,208 INFO c.s.d.a.SrkAES [main] substituteWord input    16
+2024-09-28 09:21:52,208 INFO c.s.d.a.SrkAESTest [main] substituteWord     16
+2024-09-28 09:21:52,210 INFO c.s.d.a.SrkAES [main] substituteWord input    00
+2024-09-28 09:21:52,210 INFO c.s.d.a.SrkAES [main] substituteByte input    FF
+2024-09-28 09:21:52,210 INFO c.s.d.a.SrkAES [main] substituteByte output    16
+2024-09-28 09:21:52,210 INFO c.s.d.a.SrkAES [main] substituteByte input    FF
+2024-09-28 09:21:52,210 INFO c.s.d.a.SrkAES [main] substituteByte output    16
+2024-09-28 09:21:52,210 INFO c.s.d.a.SrkAES [main] substituteByte input    FF
+2024-09-28 09:21:52,211 INFO c.s.d.a.SrkAES [main] substituteByte output    16
+2024-09-28 09:21:52,211 INFO c.s.d.a.SrkAES [main] substituteByte input    00
+2024-09-28 09:21:52,211 INFO c.s.d.a.SrkAES [main] substituteByte output    63
+2024-09-28 09:21:52,211 INFO c.s.d.a.SrkAES [main] substituteWord input    63
+2024-09-28 09:21:52,212 INFO c.s.d.a.SrkAESTest [main] substituteWord     63
+2024-09-28 09:21:52,213 INFO c.s.d.a.SrkAES [main] rotateWord Input     0C0D0E0F
+2024-09-28 09:21:52,213 INFO c.s.d.a.SrkAES [main] rotateWord Output    0D0E0F0C
+2024-09-28 09:21:52,214 INFO c.s.d.a.SrkAESTest [main] rotWord     0D0E0F0C
+2024-09-28 09:21:52,214 INFO c.s.d.a.SrkAES [main] substituteWord input    0C
+2024-09-28 09:21:52,214 INFO c.s.d.a.SrkAES [main] substituteByte input    0D
+2024-09-28 09:21:52,214 INFO c.s.d.a.SrkAES [main] substituteByte output    D7
+2024-09-28 09:21:52,214 INFO c.s.d.a.SrkAES [main] substituteByte input    0E
+2024-09-28 09:21:52,214 INFO c.s.d.a.SrkAES [main] substituteByte output    AB
+2024-09-28 09:21:52,214 INFO c.s.d.a.SrkAES [main] substituteByte input    0F
+2024-09-28 09:21:52,214 INFO c.s.d.a.SrkAES [main] substituteByte output    76
+2024-09-28 09:21:52,215 INFO c.s.d.a.SrkAES [main] substituteByte input    0C
+2024-09-28 09:21:52,215 INFO c.s.d.a.SrkAES [main] substituteByte output    FE
+2024-09-28 09:21:52,215 INFO c.s.d.a.SrkAES [main] substituteWord input    FE
+2024-09-28 09:21:52,215 INFO c.s.d.a.SrkAES [main] rCon output    01000000
+2024-09-28 09:21:52,222 INFO c.s.d.a.SrkAES [main] rCon output    01000000
+2024-09-28 09:21:52,223 INFO c.s.d.a.SrkAESTest [main] test_rCon1     01000000
+2024-09-28 09:21:52,226 INFO c.s.d.a.SrkAES [main] rCon output    02000000
+2024-09-28 09:21:52,226 INFO c.s.d.a.SrkAESTest [main] test_rCon1     02000000
+2024-09-28 09:21:52,226 INFO c.s.d.a.SrkAES [main] rCon output    04000000
+2024-09-28 09:21:52,226 INFO c.s.d.a.SrkAESTest [main] test_rCon1     04000000
+2024-09-28 09:21:52,228 INFO c.s.d.a.SrkAES [main] rCon output    08000000
+2024-09-28 09:21:52,228 INFO c.s.d.a.SrkAESTest [main] test_rCon1     08000000
+2024-09-28 09:21:52,229 INFO c.s.d.a.SrkAES [main] rotateWord Input     FF1122FF
+2024-09-28 09:21:52,229 INFO c.s.d.a.SrkAES [main] rotateWord Output    1122FFFF
+2024-09-28 09:21:52,229 INFO c.s.d.a.SrkAESTest [main] expandKey         1122FFFF
+2024-09-28 09:21:52,230 INFO c.s.d.a.SrkAES [main] rotateWord Input     FFFF2233
+2024-09-28 09:21:52,231 INFO c.s.d.a.SrkAES [main] rotateWord Output    FF2233FF
+2024-09-28 09:21:52,231 INFO c.s.d.a.SrkAESTest [main] expandKey         FF2233FF
+2024-09-28 09:22:00,240 INFO c.s.d.a.SrkAES [main] rotateWord Input     FF112233
+2024-09-28 09:22:00,242 INFO c.s.d.a.SrkAES [main] rotateWord Output    112233FF
+2024-09-28 09:22:00,242 INFO c.s.d.a.SrkAESTest [main] expandKey         112233FF
+2024-09-28 09:22:00,251 INFO c.s.d.a.SrkAES [main] rotateWord Input     0C0D0E0F
+2024-09-28 09:22:00,251 INFO c.s.d.a.SrkAES [main] rotateWord Output    0D0E0F0C
+2024-09-28 09:22:00,252 INFO c.s.d.a.SrkAES [main] substituteWord input    0C
+2024-09-28 09:22:00,252 INFO c.s.d.a.SrkAES [main] substituteByte input    0D
+2024-09-28 09:22:00,252 INFO c.s.d.a.SrkAES [main] substituteByte output    D7
+2024-09-28 09:22:00,252 INFO c.s.d.a.SrkAES [main] substituteByte input    0E
+2024-09-28 09:22:00,252 INFO c.s.d.a.SrkAES [main] substituteByte output    AB
+2024-09-28 09:22:00,252 INFO c.s.d.a.SrkAES [main] substituteByte input    0F
+2024-09-28 09:22:00,252 INFO c.s.d.a.SrkAES [main] substituteByte output    76
+2024-09-28 09:22:00,252 INFO c.s.d.a.SrkAES [main] substituteByte input    0C
+2024-09-28 09:22:00,253 INFO c.s.d.a.SrkAES [main] substituteByte output    FE
+2024-09-28 09:22:00,253 INFO c.s.d.a.SrkAES [main] substituteWord input    FE
+2024-09-28 09:22:00,253 INFO c.s.d.a.SrkAES [main] rCon output    01000000
+2024-09-28 09:22:00,253 INFO c.s.d.a.SrkAESTest [main] specialOperationExpandKey     D6AB76FE
+2024-09-28 09:22:00,254 INFO c.s.d.a.SrkAES [main] substituteByte input    01
+2024-09-28 09:22:00,254 INFO c.s.d.a.SrkAES [main] substituteByte output    7C
+2024-09-28 09:22:00,255 INFO c.s.d.a.SrkAESTest [main] substituteWord     7C
+2024-09-28 09:22:00,256 INFO c.s.d.a.SrkAES [main] substituteByte input    00
+2024-09-28 09:22:00,256 INFO c.s.d.a.SrkAES [main] substituteByte output    63
+2024-09-28 09:22:00,256 INFO c.s.d.a.SrkAESTest [main] substituteWord     63
+2024-09-28 09:22:00,258 INFO c.s.d.a.SrkAES [main] substituteByte input    FF
+2024-09-28 09:22:00,258 INFO c.s.d.a.SrkAES [main] substituteByte output    16
+2024-09-28 09:22:00,258 INFO c.s.d.a.SrkAESTest [main] substituteWord     16
+2024-09-28 09:22:00,259 INFO c.s.d.a.SrkAES [main] substituteWord input    FF
+2024-09-28 09:22:00,260 INFO c.s.d.a.SrkAES [main] substituteByte input    FF
+2024-09-28 09:22:00,260 INFO c.s.d.a.SrkAES [main] substituteByte output    16
+2024-09-28 09:22:00,260 INFO c.s.d.a.SrkAES [main] substituteByte input    FF
+2024-09-28 09:22:00,260 INFO c.s.d.a.SrkAES [main] substituteByte output    16
+2024-09-28 09:22:00,260 INFO c.s.d.a.SrkAES [main] substituteByte input    FF
+2024-09-28 09:22:00,260 INFO c.s.d.a.SrkAES [main] substituteByte output    16
+2024-09-28 09:22:00,260 INFO c.s.d.a.SrkAES [main] substituteByte input    FF
+2024-09-28 09:22:00,260 INFO c.s.d.a.SrkAES [main] substituteByte output    16
+2024-09-28 09:22:00,261 INFO c.s.d.a.SrkAES [main] substituteWord input    16
+2024-09-28 09:22:00,261 INFO c.s.d.a.SrkAESTest [main] substituteWord     16
+2024-09-28 09:22:00,261 INFO c.s.d.a.SrkAES [main] substituteWord input    00
+2024-09-28 09:22:00,262 INFO c.s.d.a.SrkAES [main] substituteByte input    FF
+2024-09-28 09:22:00,262 INFO c.s.d.a.SrkAES [main] substituteByte output    16
+2024-09-28 09:22:00,262 INFO c.s.d.a.SrkAES [main] substituteByte input    FF
+2024-09-28 09:22:00,262 INFO c.s.d.a.SrkAES [main] substituteByte output    16
+2024-09-28 09:22:00,262 INFO c.s.d.a.SrkAES [main] substituteByte input    FF
+2024-09-28 09:22:00,263 INFO c.s.d.a.SrkAES [main] substituteByte output    16
+2024-09-28 09:22:00,263 INFO c.s.d.a.SrkAES [main] substituteByte input    00
+2024-09-28 09:22:00,263 INFO c.s.d.a.SrkAES [main] substituteByte output    63
+2024-09-28 09:22:00,263 INFO c.s.d.a.SrkAES [main] substituteWord input    63
+2024-09-28 09:22:00,263 INFO c.s.d.a.SrkAESTest [main] substituteWord     63
+2024-09-28 09:22:00,264 INFO c.s.d.a.SrkAES [main] rotateWord Input     0C0D0E0F
+2024-09-28 09:22:00,264 INFO c.s.d.a.SrkAES [main] rotateWord Output    0D0E0F0C
+2024-09-28 09:22:00,264 INFO c.s.d.a.SrkAESTest [main] rotWord     0D0E0F0C
+2024-09-28 09:22:00,265 INFO c.s.d.a.SrkAES [main] substituteWord input    0C
+2024-09-28 09:22:00,265 INFO c.s.d.a.SrkAES [main] substituteByte input    0D
+2024-09-28 09:22:00,265 INFO c.s.d.a.SrkAES [main] substituteByte output    D7
+2024-09-28 09:22:00,265 INFO c.s.d.a.SrkAES [main] substituteByte input    0E
+2024-09-28 09:22:00,265 INFO c.s.d.a.SrkAES [main] substituteByte output    AB
+2024-09-28 09:22:00,265 INFO c.s.d.a.SrkAES [main] substituteByte input    0F
+2024-09-28 09:22:00,265 INFO c.s.d.a.SrkAES [main] substituteByte output    76
+2024-09-28 09:22:00,265 INFO c.s.d.a.SrkAES [main] substituteByte input    0C
+2024-09-28 09:22:00,265 INFO c.s.d.a.SrkAES [main] substituteByte output    FE
+2024-09-28 09:22:00,265 INFO c.s.d.a.SrkAES [main] substituteWord input    FE
+2024-09-28 09:22:00,266 INFO c.s.d.a.SrkAES [main] rCon output    01000000
+2024-09-28 09:22:00,288 INFO c.s.d.a.SrkAES [main] rCon output    01000000
+2024-09-28 09:22:00,288 INFO c.s.d.a.SrkAESTest [main] test_rCon1     01000000
+2024-09-28 09:22:00,290 INFO c.s.d.a.SrkAES [main] rCon output    02000000
+2024-09-28 09:22:00,290 INFO c.s.d.a.SrkAESTest [main] test_rCon1     02000000
+2024-09-28 09:22:00,291 INFO c.s.d.a.SrkAES [main] rCon output    04000000
+2024-09-28 09:22:00,291 INFO c.s.d.a.SrkAESTest [main] test_rCon1     04000000
+2024-09-28 09:22:00,291 INFO c.s.d.a.SrkAES [main] rCon output    08000000
+2024-09-28 09:22:00,291 INFO c.s.d.a.SrkAESTest [main] test_rCon1     08000000
+2024-09-28 09:22:00,293 INFO c.s.d.a.SrkAES [main] rotateWord Input     FF1122FF
+2024-09-28 09:22:00,293 INFO c.s.d.a.SrkAES [main] rotateWord Output    1122FFFF
+2024-09-28 09:22:00,293 INFO c.s.d.a.SrkAESTest [main] expandKey         1122FFFF
+2024-09-28 09:22:00,294 INFO c.s.d.a.SrkAES [main] rotateWord Input     FFFF2233
+2024-09-28 09:22:00,294 INFO c.s.d.a.SrkAES [main] rotateWord Output    FF2233FF
+2024-09-28 09:22:00,294 INFO c.s.d.a.SrkAESTest [main] expandKey         FF2233FF
