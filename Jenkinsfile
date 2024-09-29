@@ -2,9 +2,7 @@ pipeline {
     agent any
        parameters {
         choice(choices: ['silence' , 'greeting'], description: '',name: 'REQUESTED_ACTION')
-        choice(choices: getData2(), description: '',name: 'REQUESTED_ACTION2')
         choice(choices: getData1(), description: '',name: 'REQUESTED_ACTION2')
-        
     }
     stages {
         stage('Build') { 
@@ -28,13 +26,6 @@ pipeline {
     }
 }
 
-
-
-def getData2() {
-		List devList  = ["Select:selected", "dev1", "dev2"]
-   return devList
-}
-
 def getData1() {
 	def utilModule1
 	node('LOCAL') 
@@ -42,7 +33,6 @@ def getData1() {
     utilModule1  = load "${env.WORKSPACE}//jenkins//util.Groovy"
     utilModule1.printHello()
     }
-   
     utilModule1.getData()	
    return ["dev", "prod"]
 }
