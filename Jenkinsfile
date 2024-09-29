@@ -28,13 +28,7 @@ pipeline {
     }
 }
 
-def utilModule
-agent {
-   // checkout scm 
-    def rootDir = pwd()
-    utilModule  = load "${rootDir}/jenkins/util.Groovy"
-    utilModule.printHello()
-}
+
 
 def getData2() {
 		List devList  = ["Select:selected", "dev1", "dev2"]
