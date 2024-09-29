@@ -5,10 +5,10 @@ pipeline {
             choices: ['silence' , 'greeting'],
             description: '',
             name: 'REQUESTED_ACTION')
-		activeChoiceParam('CHOICE-1') {
+        activeChoiceParam('CHOICE-1') {
             choiceType('SINGLE_SELECT')
             groovyScript {
-                script(utilModule.getData())
+                script: "$getData2"
             }
             }            
     }
@@ -40,4 +40,9 @@ node {
     def rootDir = pwd()
     utilModule  = load "${rootDir}/jenkins/util.Groovy"
     utilModule.printHello()
+}
+
+def getData2(JOB_NAME) {
+		List devList  = ["Select:selected", "dev1", "dev2"]
+   return devList
 }
