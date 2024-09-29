@@ -45,11 +45,13 @@ def getData1() {
 	def utilModule  
     agent
     {
+		
     utilModule  = load "${env.WORKSPACE}/jenkins/util.Groovy"
+    println("${env.WORKSPACE}/jenkins/util.Groovy")
     utilModule.printHello()
     utilModule.getData()	
     }
-    utilModule.printHello()		
-   return utilModule.getData()
+		
+   return ""
 }
 
