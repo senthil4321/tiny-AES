@@ -9,6 +9,7 @@ pipeline {
             choiceType('SINGLE_SELECT')
             groovyScript {
                 script(utilModule.getData())
+            }
             }            
     }
     stages {
@@ -32,6 +33,7 @@ pipeline {
 		}		
     }
 }
+
 def utilModule
 node {
     checkout scm 
@@ -39,4 +41,3 @@ node {
     utilModule  = load "${rootDir}/jenkins/util.Groovy"
     utilModule.printHello()
 }
-
