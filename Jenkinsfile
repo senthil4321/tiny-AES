@@ -101,7 +101,7 @@ node {
     utilModule.printHello()
 }
 
-def getData2(JOB_NAME) {
+def getData2() {
 		List devList  = ["Select:selected", "dev1", "dev2"]
    return devList
 }
