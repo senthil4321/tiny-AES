@@ -43,7 +43,7 @@ def getData2() {
 
 def getData1() {
 	def utilModule1
-	agent {  
+	node { label 'LOCAL' } {  
     utilModule1  = load "${env.WORKSPACE}//jenkins//util.Groovy"
      utilModule1.printHello()
     }
