@@ -16,7 +16,7 @@ properties([
                 classpath: [],
                 oldScript: '',
                 sandbox: true,
-                script: "return ['dev', 'stage', 'prod']"
+                script: "#getData2"
             ]
         )
           ),
