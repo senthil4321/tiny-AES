@@ -94,7 +94,7 @@ pipeline {
 }
 
 def utilModule
-node {
+agent {
    // checkout scm 
     def rootDir = pwd()
     utilModule  = load "${rootDir}/jenkins/util.Groovy"
