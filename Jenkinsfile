@@ -16,7 +16,7 @@ properties([
                 classpath: [],
                 oldScript: '',
                 sandbox: true,
-                script: "$getData2"
+                script: "return ['TYPE1', 'TYPE2', 'TYPE3', 'TYPE4']"
             ]
         )
           ),
