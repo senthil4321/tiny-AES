@@ -25,7 +25,6 @@ pipeline {
 		}		
     }
 }
-
 def getData1() {
 	def utilModule1
 	node('LOCAL') 
