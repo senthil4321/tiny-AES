@@ -33,7 +33,6 @@ def getData1() {
     utilModule1  = load "${env.WORKSPACE}//jenkins//util.Groovy"
     utilModule1.printHello()
     }
-    utilModule1.getData()	
-   return ["dev", "prod"]
+   return  utilModule1.getData()
 }
 
