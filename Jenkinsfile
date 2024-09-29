@@ -1,4 +1,3 @@
-def getDataList = getData2()
 properties([
    parameters([
       [
