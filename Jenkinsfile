@@ -1,3 +1,28 @@
+properties([
+   parameters([
+      [
+         $class: 'ChoiceParameter',
+         choiceType: 'PT_SINGLE_SELECT',
+         description: "Select which type",
+         filterLength: 1,
+         filterable: false, 
+         name: 'TYPE', 
+         script: [
+            $class: 'GroovyScript', 
+            fallbackScript: [
+               classpath: [], 
+               sandbox: true,
+               script: "return['']"
+            ], 
+            script: [
+               classpath: [], 
+               sandbox: true,
+               script: "return ['TYPE1', 'TYPE2', 'TYPE3', 'TYPE4']"
+            ]
+         ]
+      ]
+   ])
+])
 pipeline {
     agent any
        parameters {
@@ -5,12 +30,6 @@ pipeline {
             choices: ['silence' , 'greeting'],
             description: '',
             name: 'REQUESTED_ACTION')
-        activeChoiceParam('CHOICE-1') {
-            choiceType('SINGLE_SELECT')
-            groovyScript {
-                script: "$getData2"
-            }
-            }            
     }
     stages {
         stage('Build') { 
