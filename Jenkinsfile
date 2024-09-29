@@ -1,73 +1,10 @@
-properties([
-   parameters([
-	activeChoice(
-        choiceType: 'PT_SINGLE_SELECT',
-        filterLength: 1,
-        filterable: false,
-        name: 'Env',
-        script: groovyScript(
-            fallbackScript: [
-                classpath: [],
-                oldScript: '',
-                sandbox: true,
-                script: "return ['Could not get the environments']"
-            ],
-            script: [
-                classpath: [],
-                oldScript: '',
-                sandbox: true,
-                script: "return ['TYPE1', 'TYPE2', 'TYPE3', 'TYPE4']"
-            ]
-        )
-          ),
-	      [
-         $class: 'ChoiceParameter',
-         choiceType: 'PT_SINGLE_SELECT',
-         description: "Select which type",
-         filterLength: 1,
-         filterable: false, 
-         name: 'TYPE', 
-         script: [
-            $class: 'GroovyScript', 
-            fallbackScript: [
-               classpath: [], 
-               sandbox: true,
-               script: "return['']"
-            ], 
-            script: [
-               classpath: [], 
-               sandbox: true,
-               script: "return ['TYPE1', 'TYPE2', 'TYPE3', 'TYPE4']"
-            ]
-         ]
-      ],
-      [
-         $class: 'CascadeChoiceParameter',
-         choiceType: 'PT_SINGLE_SELECT', 
-         description: 'Select which sub type',
-         name: 'SUB_TYPE', 
-         referencedParameters: 'TYPE',
-         script: [
-            $class: 'GroovyScript', 
-            fallbackScript: [
-               classpath: [], 
-               sandbox: true, 
-               script: "return['Select which type']"
-            ], 
-            script: [
-               classpath: [], 
-               sandbox: true,
-               script:  "return['Select which type']"
-            ] 
-         ]
-      ]
-   ])
-])
 pipeline {
     agent any
        parameters {
         choice(choices: ['silence' , 'greeting'], description: '',name: 'REQUESTED_ACTION')
         choice(choices: getData2(), description: '',name: 'REQUESTED_ACTION2')
+        choice(choices: getData1(), description: '',name: 'REQUESTED_ACTION2')
+        
     }
     stages {
         stage('Build') { 
@@ -102,4 +39,10 @@ agent {
 def getData2() {
 		List devList  = ["Select:selected", "dev1", "dev2"]
    return devList
+}
+def getData1() {
+    def rootDir = pwd()
+    def utilModule  = load "${rootDir}/jenkins/util.Groovy"
+    utilModule.printHello()		
+   return utilModule.getData())
 }

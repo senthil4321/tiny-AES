@@ -3,7 +3,7 @@ def printHello() {
 }
 
 def getData() {
-	List devList  = ["Select:selected", "dev1", "dev2"]
+	List devList  = ["dev", "prod"]
 	println("getData Groovy Script")
 return devList 
 }
