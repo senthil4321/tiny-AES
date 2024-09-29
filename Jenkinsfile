@@ -52,6 +52,6 @@ def getData1() {
     utilModule.getData()	
     }
 		
-   return ""
+   return ["dev", "prod"]
 }
 
