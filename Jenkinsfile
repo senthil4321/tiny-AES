@@ -9,6 +9,7 @@ pipeline {
         stage('Report') {
             steps {
                 junit '**/surefire-reports/*.xml' 
+                
             }			
 		}
     }
