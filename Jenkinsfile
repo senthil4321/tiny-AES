@@ -42,11 +42,9 @@ def getData2() {
 }
 agent {
 def getData1() {
-
-    def rootDir = pwd()
-   
+    def rootDir = "${env.WORKSPACE}"
     def utilModule  = load "${rootDir}/jenkins/util.Groovy"
     utilModule.printHello()		
    return utilModule.getData()
 }
- }
+}
