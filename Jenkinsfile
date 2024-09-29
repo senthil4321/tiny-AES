@@ -44,5 +44,5 @@ def getData1() {
     def rootDir = pwd()
     def utilModule  = load "${rootDir}/jenkins/util.Groovy"
     utilModule.printHello()		
-   return utilModule.getData())
+   return utilModule.getData()
 }
