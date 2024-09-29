@@ -27,3 +27,11 @@ pipeline {
 		}		
     }
 }
+
+def utilModule
+node {
+    checkout scm 
+    utilModule = load "jenkins/util.Groovy"
+}
+utilModule.printHello()
+
