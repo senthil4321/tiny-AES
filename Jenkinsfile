@@ -42,16 +42,10 @@ def getData2() {
 }
 
 def getData1() {
-	def utilModule  
-    agent
-    {
-		
-    utilModule  = load "${env.WORKSPACE}/jenkins/util.Groovy"
-    println("${env.WORKSPACE}/jenkins/util.Groovy")
-    utilModule.printHello()
-    utilModule.getData()	
-    }
-		
+	def utilModule1  
+    utilModule1  = load "${env.WORKSPACE}//jenkins//util.Groovy"
+    utilModule1.printHello()
+    utilModule1.getData()	
    return ["dev", "prod"]
 }
 
