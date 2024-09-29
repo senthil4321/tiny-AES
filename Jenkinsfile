@@ -33,6 +33,7 @@ node {
     checkout scm 
     def rootDir = pwd()
     utilModule  = load "${rootDir}/jenkins/util.Groovy"
+    utilModule.printHello()
 }
 utilModule.printHello()
 
