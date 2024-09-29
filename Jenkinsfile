@@ -40,12 +40,13 @@ def getData2() {
 		List devList  = ["Select:selected", "dev1", "dev2"]
    return devList
 }
-
-def getData1() {
 agent {
+def getData1() {
+
     def rootDir = pwd()
-    }
+   
     def utilModule  = load "${rootDir}/jenkins/util.Groovy"
     utilModule.printHello()		
    return utilModule.getData()
 }
+ }
