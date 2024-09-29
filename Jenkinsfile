@@ -43,9 +43,10 @@ def getData2() {
 
 def getData1() {
 	def utilModule1
-	node { label 'LOCAL' } {  
+	node('LOCAL') 
+	{  
     utilModule1  = load "${env.WORKSPACE}//jenkins//util.Groovy"
-     utilModule1.printHello()
+    utilModule1.printHello()
     }
    
     utilModule1.getData()	
