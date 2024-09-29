@@ -1,6 +1,26 @@
 properties([
    parameters([
-      [
+	activeChoice(
+        choiceType: 'PT_SINGLE_SELECT',
+        filterLength: 1,
+        filterable: false,
+        name: 'Env',
+        script: groovyScript(
+            fallbackScript: [
+                classpath: [],
+                oldScript: '',
+                sandbox: true,
+                script: "return ['Could not get the environments']"
+            ],
+            script: [
+                classpath: [],
+                oldScript: '',
+                sandbox: true,
+                script: "return ['dev', 'stage', 'prod']"
+            ]
+        )
+          ),
+	      [
          $class: 'ChoiceParameter',
          choiceType: 'PT_SINGLE_SELECT',
          description: "Select which type",
@@ -37,7 +57,7 @@ properties([
             script: [
                classpath: [], 
                sandbox: true,
-               script: "$utilModule.getData()"
+               script:  "return['Select which type']"
             ] 
          ]
       ]
