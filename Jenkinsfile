@@ -1,3 +1,4 @@
+def getDataList = getData2()
 properties([
    parameters([
       [
@@ -37,7 +38,7 @@ properties([
             script: [
                classpath: [], 
                sandbox: true,
-               script: "$getData2"
+               script: "$getDataList"
             ] 
          ]
       ]
