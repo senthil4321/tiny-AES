@@ -5,6 +5,11 @@ pipeline {
             choices: ['silence' , 'greeting'],
             description: '',
             name: 'REQUESTED_ACTION')
+		activeChoiceParam('CHOICE-1') {
+            choiceType('SINGLE_SELECT')
+            groovyScript {
+                script(utilModule.getData())
+            }            
     }
     stages {
         stage('Build') { 
@@ -27,10 +32,10 @@ pipeline {
 		}		
     }
 }
+def utilModule
 node {
     checkout scm 
     def rootDir = pwd()
-    def utilModule
     utilModule  = load "${rootDir}/jenkins/util.Groovy"
     utilModule.printHello()
 }
