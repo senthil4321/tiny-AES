@@ -38,7 +38,7 @@ properties([
             script: [
                classpath: [], 
                sandbox: true,
-               script: "$getDataList"
+               script: "$utilModule.getData"
             ] 
          ]
       ]
