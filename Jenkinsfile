@@ -66,7 +66,7 @@ properties([
 pipeline {
     agent any
        parameters {
-        choice(choices: ['silence' , 'greeting'], description: '',name: 'REQUESTED_ACTION'),
+        choice(choices: ['silence' , 'greeting'], description: '',name: 'REQUESTED_ACTION')
         choice(choices: ['silence' , 'greeting'], description: '',name: 'REQUESTED_ACTION2')
     }
     stages {
