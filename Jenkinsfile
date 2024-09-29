@@ -1,7 +1,13 @@
 pipeline {
     agent any
+       parameters {
+        choice(
+            choices: ['greeting' , 'greeting'],
+            description: '',
+            name: 'REQUESTED_ACTION')
+    }
     stages {
-        stage('Build1') { 
+        stage('Build') { 
             steps {
                 sh 'mvn -B clean package' 
             }
@@ -9,8 +15,15 @@ pipeline {
         stage('Report') {
             steps {
                 junit '**/surefire-reports/*.xml' 
-                
             }			
 		}
+        stage('Report2') {
+            when {
+                expression { params.REQUESTED_ACTION == 'greeting' }
+            }
+            steps {
+                echo "Hello, greeting!"
+            }			
+		}		
     }
 }
