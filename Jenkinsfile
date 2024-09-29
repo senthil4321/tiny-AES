@@ -20,6 +20,26 @@ properties([
                script: "return ['TYPE1', 'TYPE2', 'TYPE3', 'TYPE4']"
             ]
          ]
+      ],
+      [
+         $class: 'CascadeChoiceParameter',
+         choiceType: 'PT_SINGLE_SELECT', 
+         description: 'Select which sub type',
+         name: 'SUB_TYPE', 
+         referencedParameters: 'TYPE',
+         script: [
+            $class: 'GroovyScript', 
+            fallbackScript: [
+               classpath: [], 
+               sandbox: true, 
+               script: "return['Select which type']"
+            ], 
+            script: [
+               classpath: [], 
+               sandbox: true,
+               script: "$getData2"
+            ] 
+         ]
       ]
    ])
 ])
