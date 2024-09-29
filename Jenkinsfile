@@ -43,7 +43,7 @@ def getData2() {
 
 def getData1() {
 	def utilModule  
-    agent any
+    agent
     {
     utilModule  = load "${env.WORKSPACE}/jenkins/util.Groovy"
     }
