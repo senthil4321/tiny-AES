@@ -31,7 +31,8 @@ pipeline {
 def utilModule
 node {
     checkout scm 
-    utilModule = load "jenkins/util.Groovy"
+    def rootDir = pwd()
+    def utilModule  = load "${rootDir}@jenkins/util.Groovy"
 }
 utilModule.printHello()
 
