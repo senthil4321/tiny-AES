@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attack Feasibility & Impact Rating</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .container { max-width: 400px; margin: auto; }
+        label, select { display: block; margin: 10px 0; }
+        .result { margin-top: 20px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Attack Feasibility Rating</h2>
+        <label>Expertise:
+            <select id="expertise">
+                <option value="1">Low</option>
+                <option value="2">Medium</option>
+                <option value="3">High</option>
+            </select>
+        </label>
+        <label>Knowledge:
+            <select id="knowledge">
+                <option value="1">Minimal</option>
+                <option value="2">Moderate</option>
+                <option value="3">Extensive</option>
+            </select>
+        </label>
+        <label>Elapsed Time:
+            <select id="time">
+                <option value="1">Short</option>
+                <option value="2">Medium</option>
+                <option value="3">Long</option>
+            </select>
+        </label>
+        <label>Equipment:
+            <select id="equipment">
+                <option value="1">Basic</option>
+                <option value="2">Intermediate</option>
+                <option value="3">Advanced</option>
+            </select>
+        </label>
+        <label>Window of Opportunity:
+            <select id="opportunity">
+                <option value="1">Rare</option>
+                <option value="2">Occasional</option>
+                <option value="3">Frequent</option>
+            </select>
+        </label>
+        <button onclick="calculateRating()">Calculate Feasibility Rating</button>
+        <div class="result" id="rating"></div>
+        
+        <h2>Impact Rating</h2>
+        <label>Finance:
+            <select id="finance">
+                <option value="1">Low</option>
+                <option value="2">Medium</option>
+                <option value="3">High</option>
+            </select>
+        </label>
+        <label>Privacy:
+            <select id="privacy">
+                <option value="1">Low</option>
+                <option value="2">Medium</option>
+                <option value="3">High</option>
+            </select>
+        </label>
+        <label>Safety:
+            <select id="safety">
+                <option value="1">Low</option>
+                <option value="2">Medium</option>
+                <option value="3">High</option>
+            </select>
+        </label>
+        <label>Operational:
+            <select id="operational">
+                <option value="1">Low</option>
+                <option value="2">Medium</option>
+                <option value="3">High</option>
+            </select>
+        </label>
+        <button onclick="calculateImpactRating()">Calculate Impact Rating</button>
+        <div class="result" id="impactRating"></div>
+    </div>
+
+    <script>
+        function calculateRating() {
+            let expertise = parseInt(document.getElementById("expertise").value) * 3;
+            let knowledge = parseInt(document.getElementById("knowledge").value) * 2;
+            let time = parseInt(document.getElementById("time").value) * 2;
+            let equipment = parseInt(document.getElementById("equipment").value) * 3;
+            let opportunity = parseInt(document.getElementById("opportunity").value) * 1;
+            
+            let total = expertise + knowledge + time + equipment + opportunity;
+            let rating = "Low";
+            if (total > 12) rating = "Medium";
+            if (total > 20) rating = "High";
+            
+            document.getElementById("rating").innerText = "Attack Feasibility Rating: " + rating + " (Score: " + total + ")";
+        }
+        
+        function calculateImpactRating() {
+            let finance = parseInt(document.getElementById("finance").value) * 3;
+            let privacy = parseInt(document.getElementById("privacy").value) * 3;
+            let safety = parseInt(document.getElementById("safety").value) * 4;
+            let operational = parseInt(document.getElementById("operational").value) * 2;
+            
+            let total = finance + privacy + safety + operational;
+            let rating = "Low";
+            if (total > 10) rating = "Medium";
+            if (total > 18) rating = "High";
+            
+            document.getElementById("impactRating").innerText = "Impact Rating: " + rating + " (Score: " + total + ")";
+        }
+    </script>
+</body>
+</html>

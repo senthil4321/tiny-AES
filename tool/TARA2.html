@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TARA (ISO 21434) Risk Assessment</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .container { max-width: 700px; margin: auto; }
+        label, select, button { display: block; margin: 10px 0; }
+        .result { margin-top: 20px; font-weight: bold; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid black; padding: 8px; text-align: center; }
+        th { background-color: #f4f4f4; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>ISO 21434 TARA Risk Assessment</h2>
+        
+        <h3>Asset Identification</h3>
+        <label>Critical Asset:
+            <select id="asset">
+                <option value="1">ECU (Engine Control Unit)</option>
+                <option value="2">Telematics System</option>
+                <option value="3">ADAS Sensors</option>
+                <option value="4">Infotainment System</option>
+            </select>
+        </label>
+        
+        <h3>Threat Scenario Analysis</h3>
+        <label>Threat Scenario:
+            <select id="threat">
+                <option value="1">Remote Keyless Entry Attack</option>
+                <option value="2">CAN Bus Injection</option>
+                <option value="3">OTA Update Exploit</option>
+                <option value="4">Sensor Spoofing</option>
+            </select>
+        </label>
+        
+        <h3>Damage Scenario Evaluation</h3>
+        <label>Damage Scenario:
+            <select id="damage">
+                <option value="1">Safety Impact</option>
+                <option value="2">Privacy Breach</option>
+                <option value="3">Operational Disruption</option>
+                <option value="4">Financial Fraud</option>
+            </select>
+        </label>
+        
+        <h3>Attack Feasibility</h3>
+        <label>Expertise:
+            <select id="expertise">
+                <option value="1">Low</option>
+                <option value="2">Medium</option>
+                <option value="3">High</option>
+            </select>
+        </label>
+        <label>Knowledge:
+            <select id="knowledge">
+                <option value="1">Minimal</option>
+                <option value="2">Moderate</option>
+                <option value="3">Extensive</option>
+            </select>
+        </label>
+        <label>Elapsed Time:
+            <select id="time">
+                <option value="1">Short</option>
+                <option value="2">Medium</option>
+                <option value="3">Long</option>
+            </select>
+        </label>
+        <label>Equipment:
+            <select id="equipment">
+                <option value="1">Basic</option>
+                <option value="2">Intermediate</option>
+                <option value="3">Advanced</option>
+            </select>
+        </label>
+        <label>Window of Opportunity:
+            <select id="opportunity">
+                <option value="1">Rare</option>
+                <option value="2">Occasional</option>
+                <option value="3">Frequent</option>
+            </select>
+        </label>
+        
+        <button onclick="calculateTARA()">Calculate TARA Risk</button>
+        <div class="result" id="taraRisk"></div>
+        
+        <h2>Risk Matrix</h2>
+        <table>
+            <tr>
+                <th>Category</th>
+                <th>Rating</th>
+                <th>Score</th>
+            </tr>
+            <tr>
+                <td>Feasibility</td>
+                <td id="riskFeasibility"></td>
+                <td id="scoreFeasibility"></td>
+            </tr>
+            <tr>
+                <td>Impact</td>
+                <td id="riskImpact"></td>
+                <td id="scoreImpact"></td>
+            </tr>
+            <tr>
+                <td>Final Risk</td>
+                <td id="riskFinal"></td>
+                <td id="scoreFinal"></td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        function calculateTARA() {
+            let feasibilityScore = parseInt(document.getElementById("expertise").value) * 3 +
+                                   parseInt(document.getElementById("knowledge").value) * 2 +
+                                   parseInt(document.getElementById("time").value) * 2 +
+                                   parseInt(document.getElementById("equipment").value) * 3 +
+                                   parseInt(document.getElementById("opportunity").value) * 1;
+            let feasibilityRating = feasibilityScore > 20 ? "High" : feasibilityScore > 12 ? "Medium" : "Low";
+
+            let impactScore = parseInt(document.getElementById("damage").value) * 4;
+            let impactRating = impactScore > 10 ? "High" : impactScore > 5 ? "Medium" : "Low";
+            
+            let finalRiskScore = feasibilityScore + impactScore;
+            let finalRiskRating = finalRiskScore > 25 ? "Critical" : finalRiskScore > 15 ? "High" : finalRiskScore > 10 ? "Medium" : "Low";
+            
+            document.getElementById("taraRisk").innerText = `Final Risk Level: ${finalRiskRating} (Score: ${finalRiskScore})`;
+            document.getElementById("riskFeasibility").innerText = feasibilityRating;
+            document.getElementById("scoreFeasibility").innerText = feasibilityScore;
+            document.getElementById("riskImpact").innerText = impactRating;
+            document.getElementById("scoreImpact").innerText = impactScore;
+            document.getElementById("riskFinal").innerText = finalRiskRating;
+            document.getElementById("scoreFinal").innerText = finalRiskScore;
+        }
+    </script>
+</body>
+</html>
