@@ -6,7 +6,7 @@ pipeline {
     }
     options {
         skipDefaultCheckout()   // ⬅️ disables the @script checkout
-    }    
+    }List    
     stages {
         stage('Build') { 
             steps {
@@ -32,6 +32,7 @@ def getData1() {
 	def utilModule1
 	node('LOCAL') 
 	{  
+    checkout scm 
     utilModule1  = load "${env.WORKSPACE}//jenkins//util.Groovy"
     utilModule1.printHello()
     }
