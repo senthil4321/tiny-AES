@@ -6,7 +6,7 @@ pipeline {
     }
     options {
         skipDefaultCheckout()   // ⬅️ disables the @script checkout
-    }List    
+    }
     stages {
         stage('Build') { 
             steps {
