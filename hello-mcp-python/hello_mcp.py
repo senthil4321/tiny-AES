@@ -1,11 +1,30 @@
 from mcp.server import FastMCP
 import logging
 import requests
+import os
+import json
 
 # Jenkins configuration (global variables)
-JENKINS_URL = "http://172.27.192.196:8080/job/srk-freestyle/"
-JENKINS_USERNAME = "srkjenkins"
-JENKINS_API_TOKEN = "11ca8af20c12a97da70b9470bc4146e1c8"
+JENKINS_JOB_NAME = None
+JENKINS_URL = None
+JENKINS_USERNAME = None
+JENKINS_API_TOKEN = None
+
+# Load Jenkins config from local config file
+config_path = os.path.join(os.path.dirname(__file__), "jenkins_config.json")
+try:
+    with open(config_path, "r") as f:
+        config = json.load(f)
+        JENKINS_JOB_NAME = config.get("job_name")
+        JENKINS_URL = config.get("url")
+        JENKINS_USERNAME = config.get("username")
+        JENKINS_API_TOKEN = config.get("token")
+except Exception as e:
+    logging.error(f"Could not load Jenkins config from {config_path}: {e}")
+    JENKINS_JOB_NAME = None
+    JENKINS_URL = None
+    JENKINS_USERNAME = None
+    JENKINS_API_TOKEN = None
 
 # Create MCP server
 mcp = FastMCP(name="hello-mcp")
