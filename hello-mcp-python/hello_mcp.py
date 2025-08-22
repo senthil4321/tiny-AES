@@ -31,7 +31,7 @@ mcp = FastMCP(name="hello-mcp")
 
 # Simple tool
 @mcp.tool()
-def say_hello(name: str) -> dict:
+def sayHello(name: str) -> dict:
     """Returns a hello message."""
     logging.info("Processing request")
     return {"message": f"Hello SRK, {name}!"}
@@ -39,7 +39,7 @@ def say_hello(name: str) -> dict:
 # Jenkins build status tool
 
 @mcp.tool()
-def get_jenkins_status() :
+def getJenkinsStatus() :
     """Fetches the latest Jenkins build status for the given job URL, with optional authentication."""
     if not JENKINS_URL or not JENKINS_JOB_NAME:
         return {"error": "JENKINS_URL or JENKINS_JOB_NAME not set", "url": JENKINS_URL}
@@ -62,7 +62,7 @@ def get_jenkins_status() :
         
 # Start Jenkins build tool
 @mcp.tool()
-def start_jenkins_build() -> dict:
+def startJenkinsBuild() -> dict:
     """Starts a new Jenkins build for the given job URL with authentication."""
     if not JENKINS_URL or not JENKINS_JOB_NAME:
         return {"error": "JENKINS_URL or JENKINS_JOB_NAME not set", "url": JENKINS_URL}
