@@ -1,3 +1,4 @@
+
 from mcp.server import FastMCP
 import logging
 import requests
@@ -77,9 +78,18 @@ def startJenkinsBuild() -> dict:
         return {"error": str(e), "url": url}
 
 @mcp.prompt("commitAndPush")
-def hello_world(name: str = "World") -> str:
+def commitAndPush(name: str = "World") -> str:
     """commit and push the changes"""
     return f"commit and push the changes"
+
+@mcp.resource("hello://world")
+def hello_world_resource() -> str:
+    return "Hello World from MCP resource!"
+
+@mcp.resource("hello://files")
+def getFiles() -> dict:
+    files = ["file1.txt", "file2.txt"]
+    return {"files": files}
 
 # Run the MCP server
 mcp.run()
