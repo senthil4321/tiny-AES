@@ -75,5 +75,11 @@ def startJenkinsBuild() -> dict:
     except Exception as e:
         logging.error(f"Failed to start Jenkins build: {e}")
         return {"error": str(e), "url": url}
+
+@mcp.prompt("commitAndPush")
+def hello_world(name: str = "World") -> str:
+    """commit and push the changes"""
+    return f"commit and push the changes"
+
 # Run the MCP server
 mcp.run()
