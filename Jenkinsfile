@@ -4,6 +4,9 @@ pipeline {
         choice(choices: ['silence' , 'greeting'], description: '',name: 'REQUESTED_ACTION')
         choice(choices: getData1(), description: '',name: 'REQUESTED_ACTION2')
     }
+    options {
+        skipDefaultCheckout()   // ⬅️ disables the @script checkout
+    }    
     stages {
         stage('Build') { 
             steps {
@@ -29,7 +32,7 @@ def getData1() {
 	def utilModule1
 	node('LOCAL') 
 	{  
-    utilModule1  = load "jenkins//util.Groovy"
+    utilModule1  = load "${env.WORKSPACE}//jenkins//util.Groovy"
     utilModule1.printHello()
     }
    return  utilModule1.getData()
