@@ -1,4 +1,5 @@
 
+
 from mcp.server import FastMCP
 import logging
 import requests
@@ -37,6 +38,18 @@ def get_jenkins_status() :
     except Exception as e:
         logging.error(f"Failed to fetch Jenkins status: {e}")
         return {"error": str(e), "url": url}
-
+        
+# Start Jenkins build tool
+@mcp.tool()
+def start_jenkins_build() -> dict:
+    """Starts a new Jenkins build for the given job URL without authentication."""
+    url = "http://172.27.192.196:8080/job/srk-freestyle/build"
+    try:
+        response = requests.post(url, timeout=10)
+        response.raise_for_status()
+        return {"message": "Build triggered successfully.", "url": url, "status_code": response.status_code}
+    except Exception as e:
+        logging.error(f"Failed to start Jenkins build: {e}")
+        return {"error": str(e), "url": url}
 # Run the MCP server
 mcp.run()
