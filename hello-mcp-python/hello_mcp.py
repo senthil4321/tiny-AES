@@ -1,4 +1,3 @@
-
 from mcp.server import FastMCP
 import logging
 import requests
@@ -90,6 +89,62 @@ def hello_world_resource() -> str:
 def getFiles() -> dict:
     files = ["file1.txt", "file2.txt"]
     return {"files": files}
+
+@mcp.resource("hello://jenkins-builds")
+def get_jenkins_builds() -> dict:
+    """Returns a list of builds for the configured Jenkins job."""
+    if not JENKINS_URL or not JENKINS_JOB_NAME:
+        return {"error": "JENKINS_URL or JENKINS_JOB_NAME not set", "url": JENKINS_URL}
+    api_url = JENKINS_URL.rstrip('/') + f'/job/{JENKINS_JOB_NAME}/api/json?tree=builds[number,result,timestamp,id]'
+    auth = (JENKINS_USERNAME, JENKINS_API_TOKEN) if JENKINS_USERNAME and JENKINS_API_TOKEN else None
+    try:
+        response = requests.get(api_url, timeout=10, auth=auth)
+        response.raise_for_status()
+        data = response.json()
+        builds = data.get('builds', [])
+        return {"builds": builds, "url": api_url}
+    except Exception as e:
+        logging.error(f"Failed to fetch Jenkins builds: {e}")
+        return {"error": str(e), "url": api_url}
+
+@mcp.tool()
+def getPassedJenkinsStatus() -> dict:
+    """Fetches the status of the last successful Jenkins build for the given job URL."""
+    if not JENKINS_URL or not JENKINS_JOB_NAME:
+        return {"error": "JENKINS_URL or JENKINS_JOB_NAME not set", "url": JENKINS_URL}
+    api_url = JENKINS_URL.rstrip('/') + f'/job/{JENKINS_JOB_NAME}/lastSuccessfulBuild/api/json'
+    auth = (JENKINS_USERNAME, JENKINS_API_TOKEN) if JENKINS_USERNAME and JENKINS_API_TOKEN else None
+    try:
+        response = requests.get(api_url, timeout=10, auth=auth)
+        response.raise_for_status()
+        data = response.json()
+        status = data.get('result', 'UNKNOWN')
+        build_number = data.get('number', 'N/A')
+        return {
+            "build_number": build_number,
+            "status": status,
+            "url": JENKINS_URL
+        }
+    except Exception as e:
+        logging.error(f"Failed to fetch last successful Jenkins build status: {e}")
+        return {"error": str(e), "url": JENKINS_URL}
+
+@mcp.resource("hello://jenkins-jobs")
+def get_jenkins_jobs() -> dict:
+    """Returns a list of all Jenkins jobs from the configured Jenkins server."""
+    if not JENKINS_URL:
+        return {"error": "JENKINS_URL not set", "url": JENKINS_URL}
+    api_url = JENKINS_URL.rstrip('/') + '/api/json?tree=jobs[name,url,color]'
+    auth = (JENKINS_USERNAME, JENKINS_API_TOKEN) if JENKINS_USERNAME and JENKINS_API_TOKEN else None
+    try:
+        response = requests.get(api_url, timeout=10, auth=auth)
+        response.raise_for_status()
+        data = response.json()
+        jobs = data.get('jobs', [])
+        return {"jobs": jobs, "url": api_url}
+    except Exception as e:
+        logging.error(f"Failed to fetch Jenkins jobs: {e}")
+        return {"error": str(e), "url": api_url}
 
 # Run the MCP server
 mcp.run()
