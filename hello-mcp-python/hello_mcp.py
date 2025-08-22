@@ -41,7 +41,9 @@ def say_hello(name: str) -> dict:
 @mcp.tool()
 def get_jenkins_status() :
     """Fetches the latest Jenkins build status for the given job URL, with optional authentication."""
-    api_url = JENKINS_URL.rstrip('/') + '/lastBuild/api/json'
+    if not JENKINS_URL or not JENKINS_JOB_NAME:
+        return {"error": "JENKINS_URL or JENKINS_JOB_NAME not set", "url": JENKINS_URL}
+    api_url = JENKINS_URL.rstrip('/') + f'/job/{JENKINS_JOB_NAME}/lastBuild/api/json'
     auth = (JENKINS_USERNAME, JENKINS_API_TOKEN) if JENKINS_USERNAME and JENKINS_API_TOKEN else None
     try:
         response = requests.get(api_url, timeout=10, auth=auth)
@@ -62,7 +64,9 @@ def get_jenkins_status() :
 @mcp.tool()
 def start_jenkins_build() -> dict:
     """Starts a new Jenkins build for the given job URL with authentication."""
-    url = JENKINS_URL.rstrip('/') + '/build'
+    if not JENKINS_URL or not JENKINS_JOB_NAME:
+        return {"error": "JENKINS_URL or JENKINS_JOB_NAME not set", "url": JENKINS_URL}
+    url = JENKINS_URL.rstrip('/') + f'/job/{JENKINS_JOB_NAME}/build'
     auth = (JENKINS_USERNAME, JENKINS_API_TOKEN) if JENKINS_USERNAME and JENKINS_API_TOKEN else None
     try:
         response = requests.post(url, timeout=10, auth=auth)
