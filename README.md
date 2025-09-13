@@ -6,6 +6,7 @@ You can use 128, 192 and 256 bit key. See the example in the `Main.java`.
 ### TODO
 
 Optimization, refactor
+
 ### Jenkins Pipeline
 
 This project includes a Jenkins pipeline for automated build and test:
@@ -17,4 +18,23 @@ This project includes a Jenkins pipeline for automated build and test:
 - **Groovy utility**: Loads and uses `jenkins/util.Groovy` for additional data and custom logic.
 
 To use the pipeline, configure the parameters as needed in Jenkins and trigger the build. The pipeline automates compilation, testing, and reporting for the project.
----
+
+## Sequence Diagram
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant Main
+    participant AES
+    participant JavaCrypto
+    User->>Main: Start program
+    Main->>Main: Log message
+    Main->>Main: Check args
+    Main->>Main: javaCryptoTest()
+    Main->>JavaCrypto: Encrypt/Decrypt CBC
+    Main->>Main: keySensitiveTest()
+    Main->>AES: ECB/CBC Encrypt/Decrypt (128/192/256)
+    Main->>Main: Prepare input
+    Main->>AES: ECB test loop
+    Main->>AES: CBC test loop
+```
