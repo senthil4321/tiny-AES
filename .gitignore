@@ -1,1 +1,4 @@
 /target/
+
+# Ignore log file
+logs/app.log
