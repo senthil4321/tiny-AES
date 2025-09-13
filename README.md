@@ -17,3 +17,4 @@ This project includes a Jenkins pipeline for automated build and test:
 - **Groovy utility**: Loads and uses `jenkins/util.Groovy` for additional data and custom logic.
 
 To use the pipeline, configure the parameters as needed in Jenkins and trigger the build. The pipeline automates compilation, testing, and reporting for the project.
+---
