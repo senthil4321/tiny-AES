@@ -23,6 +23,7 @@ To use the pipeline, configure the parameters as needed in Jenkins and trigger t
 
 ```mermaid
 sequenceDiagram
+    %%{init: { 'theme': 'base', 'themeVariables': { 'actorTextColor': '#fff', 'actorBorder': '#2196f3', 'actorBkg': '#1976d2', 'actorLineColor': '#2196f3', 'messageLineColor': '#ff9800', 'messageTextColor': '#212121', 'labelBoxBkgColor': '#e3f2fd', 'labelBoxBorderColor': '#2196f3' } } }%%
     participant User
     participant Main
     participant AES
